@@ -2,6 +2,7 @@ package com.teamtreehouse.techdegree.overboard.model;
 
 
 import org.junit.Before;
+import org.junit.Test;
 
 import static org.junit.Assert.*;
 
@@ -26,6 +27,14 @@ public class UserTest {
         question = Moe.askQuestion("Who invented calculus?");
         answer = Larry.answerQuestion(question, "Isaac Newton");
 
+    }
+
+    @Test
+    public void upvotedQuestionIncreasesQuestionersReputationByFive() throws Exception {
+
+        Curly.upVote(question);
+
+        assertEquals(5, Moe.getReputation());
     }
 
 }
