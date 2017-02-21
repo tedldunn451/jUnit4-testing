@@ -53,4 +53,12 @@ public class UserTest {
         assertEquals(15, Larry.getReputation());
     }
 
+    @Test
+    public void downvotedAnswerReducesAnswerersReputationByOne() throws Exception {
+        Answer answer2 = Curly.answerQuestion(question, "Amanda Hugginkiss");
+
+        Larry.downVote(answer2);
+
+        assertEquals(-1, Curly.getReputation());
+    }
 }
