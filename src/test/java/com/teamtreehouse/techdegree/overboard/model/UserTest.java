@@ -37,4 +37,13 @@ public class UserTest {
         assertEquals(5, Moe.getReputation());
     }
 
+    @Test
+    public void upvotedAnswerIncreasesAnswerersReputationByTen() throws Exception {
+
+        Moe.upVote(answer);
+
+        assertEquals(10, Larry.getReputation());
+    }
+
+
 }
