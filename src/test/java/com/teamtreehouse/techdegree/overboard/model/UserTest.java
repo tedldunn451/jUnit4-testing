@@ -45,5 +45,12 @@ public class UserTest {
         assertEquals(10, Larry.getReputation());
     }
 
+    @Test
+    public void acceptedAnswerIncreasesAnswerersReputationByFifteen() throws Exception {
+
+        Moe.acceptAnswer(answer);
+
+        assertEquals(15, Larry.getReputation());
+    }
 
 }
