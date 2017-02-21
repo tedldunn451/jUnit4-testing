@@ -67,4 +67,11 @@ public class UserTest {
     public void userUpvotingTheirOwnQuestionNotAllowed() throws Exception {
         Moe.upVote(question);
     }
+
+    @Test(expected = VotingException.class)
+    public void userUpvotingTheirOwnAnswerNotAllowed() throws Exception {
+        Larry.upVote(answer);
+    }
+
+
 }
