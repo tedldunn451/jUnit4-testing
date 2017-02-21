@@ -1,6 +1,7 @@
 package com.teamtreehouse.techdegree.overboard.model;
 
 
+import com.teamtreehouse.techdegree.overboard.exc.VotingException;
 import org.junit.Before;
 import org.junit.Test;
 
@@ -60,5 +61,10 @@ public class UserTest {
         Larry.downVote(answer2);
 
         assertEquals(-1, Curly.getReputation());
+    }
+
+    @Test(expected = VotingException.class)
+    public void userUpvotingTheirOwnQuestionNotAllowed() throws Exception {
+        Moe.upVote(question);
     }
 }
