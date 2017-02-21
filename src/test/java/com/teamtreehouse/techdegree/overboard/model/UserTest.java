@@ -4,7 +4,9 @@ package com.teamtreehouse.techdegree.overboard.model;
 import com.teamtreehouse.techdegree.overboard.exc.AnswerAcceptanceException;
 import com.teamtreehouse.techdegree.overboard.exc.VotingException;
 import org.junit.Before;
+import org.junit.Rule;
 import org.junit.Test;
+import org.junit.rules.ExpectedException;
 
 import static org.junit.Assert.*;
 
@@ -19,6 +21,9 @@ public class UserTest {
     private User Curly;
     private Question question;
     private Answer answer;
+
+    @Rule
+    public ExpectedException thrown = ExpectedException.none();
 
     @Before
     public void setUp() throws Exception {
@@ -74,8 +79,11 @@ public class UserTest {
         Larry.upVote(answer);
     }
 
-    @Test(expected = AnswerAcceptanceException.class)
+    @Test
     public void onlyQuestionerCanAcceptAnswer() throws Exception {
+        thrown.expect(AnswerAcceptanceException.class);
+        thrown.expectMessage("Only Moe can accept this answer as it is their question");
+
         Curly.acceptAnswer(answer);
     }
 }
